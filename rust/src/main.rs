@@ -1,6 +1,3 @@
-// Originally 1.24 seconds
-// With Particle and Point struct is 1.38 seconds
-
 extern crate rand;
 use rand::distributions::IndependentSample;
 
@@ -73,11 +70,11 @@ fn main() {
     let mut time: f64 = 0.;
     let time_step: f64 = 0.08;
     let half_time_step: f64 = time_step/2.;
-    let time_limit: f64 = 365.25;
+    let time_limit: f64 = 36.525;
 
     let normal = rand::distributions::Normal::new(0.0, 0.03);
 
-    let mut particles = ParticleVector::new(100);
+    let mut particles = ParticleVector::new(1000);
     for i in 0..particles.size {
         particles.mass_mut()[i] = 1e-6;
         particles.position_mut()[i] = Point {

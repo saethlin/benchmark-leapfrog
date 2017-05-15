@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
 typedef struct Point {
     double x;
@@ -18,7 +19,7 @@ typedef struct ParticleVector {
 } ParticleVector;
 
 void integrator_leapfrog_part1(ParticleVector particles, double half_time_step){
-    for (int i = 0; i < particles.size; i++){
+    for (int i = 0; i < particles.size; i++) {
         particles.position[i].x  += half_time_step * particles.velocity[i].x;
         particles.position[i].y  += half_time_step * particles.velocity[i].y;
         particles.position[i].z  += half_time_step * particles.velocity[i].z;
@@ -39,7 +40,7 @@ void integrator_leapfrog_part2(ParticleVector particles, double time_step, doubl
 
 void gravity_calculate_acceleration(ParticleVector particles) {
     double G = 6.6742367e-11; // m^3.kg^-1.s^-2
-    for (int i = 0; i < particles.size; i++){
+    for (int i = 0; i < particles.size; i++) {
         particles.acceleration[i].x = 0.0;
         particles.acceleration[i].y = 0.0;
         particles.acceleration[i].z = 0.0;
@@ -77,7 +78,6 @@ int main(int argc, char* argv[]) {
 
     for (int i = 0; i < n_particles; i++) {
         particles.mass[i] = 1e-6;
-
         particles.position[i].x = (double)rand()/(double)(RAND_MAX/0.03);
         particles.position[i].y = (double)rand()/(double)(RAND_MAX/0.03);
         particles.position[i].z = (double)rand()/(double)(RAND_MAX/0.03);
