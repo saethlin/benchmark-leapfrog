@@ -5,11 +5,12 @@ authors = ["saethlin <kimockb@gmail.com>"]
 
 [dependencies]
 rand = "*"
+rust-ini = "*"
 
-[profile.dev]
+[profile.release]
 opt-level = 3
 debug = false
-rpath = false
+rpath = true
 lto = true
 debug-assertions = false
 codegen-units = 1
